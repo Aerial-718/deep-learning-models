@@ -1,0 +1,16 @@
+name: rnn-lstm-gru
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.12.13
+  - numpy=2.5.1
+  - pytorch=2.5.1
+  - pytest=9.1.1
+  - jupyterlab=4.6.1
+  - matplotlib=3.11.0
+  - pyyaml=6.0.3
+  - tqdm=4.69.0
+  - pip
+  - pip:
+      - -e .

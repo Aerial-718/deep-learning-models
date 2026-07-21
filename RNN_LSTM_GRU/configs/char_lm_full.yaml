@@ -1,0 +1,27 @@
+task: char_lm
+seeds: [42, 314, 2026]
+
+data:
+  path: data/raw/tinyshakespeare.txt
+  split: [0.9, 0.05, 0.05]
+
+model:
+  embedding_size: 128
+  hidden_size: 256
+
+training:
+  batch_size: 64
+  sequence_length: 128
+  steps: 5000
+  learning_rate: 0.001
+  gradient_clip: 1.0
+  log_interval: 50
+  eval_interval: 250
+  eval_batches: 50
+
+generation:
+  prefix: "ROMEO:"
+  new_tokens: 500
+  temperature: 0.8
+  top_k: 40
+

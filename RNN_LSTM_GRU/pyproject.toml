@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rnn-lstm-gru-from-scratch"
+version = "0.2.0"
+description = "Reference and active-recall NumPy/PyTorch implementations of RNN, LSTM, and GRU"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+  "numpy",
+  "torch",
+  "matplotlib",
+  "pyyaml",
+  "tqdm",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "jupyterlab"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["common*", "vanilla_rnn*", "lstm*", "gru*", "scripts*", "exercises*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --import-mode=importlib"
+markers = [
+  "core: validates a hand-written recurrent core implementation",
+  "integration: runs a small end-to-end training check",
+  "slow: takes longer than the focused unit tests",
+]
